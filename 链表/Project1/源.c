@@ -392,3 +392,142 @@ if (p == NULL)
 {
     printf("没有找到这个节点！\n");
 }
+
+
+
+
+
+
+//反转链表head
+ ↓
+10 → 20 → 30 → NULL 变成：head
+ ↓
+30 → 20 → 10 → NULL
+完整代码：
+struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+int main()
+{
+    struct Node* p1 = malloc(sizeof(struct Node));
+    struct Node* p2 = malloc(sizeof(struct Node));
+    struct Node* p3 = malloc(sizeof(struct Node));
+
+    p1->data = 10;
+    p2->data = 20;
+    p3->data = 30;
+
+    p1->next = p2;
+    p2->next = p3;
+    p3->next = NULL;
+
+    struct Node* head = p1;
+
+    // 反转链表
+    struct Node* prev = NULL;
+    struct Node* current = head;
+    struct Node* next;
+
+    while (current != NULL)
+    {
+        next = current->next;            //这四行循环最重要
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    head = prev;
+
+    // 输出反转后的链表
+    struct Node* p = head;
+
+    while (p != NULL)
+    {
+        printf("%d ", p->data);
+        p = p->next;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+//双向链表                      NULL ← 10 ⇄ 20 ⇄ 30 → NULL
+struct Node
+{
+    int data;
+    struct Node* prev;
+    struct Node* next;
+};
+
+int main()
+{
+    struct Node* p1 = malloc(sizeof(struct Node));
+    struct Node* p2 = malloc(sizeof(struct Node));
+    struct Node* p3 = malloc(sizeof(struct Node));
+
+    p1->data = 10;
+    p2->data = 20;
+    p3->data = 30;
+
+    // 向后连接
+    p1->next = p2;
+    p2->next = p3;
+    p3->next = NULL;
+
+    // 向前连接
+    p1->prev = NULL;
+    p2->prev = p1;
+    p3->prev = p2;
+
+    struct Node* head = p1;
+
+    return 0;
+}
+
+
+
+
+
+//循环链表：最后一个节点重新指向第一个节点
+struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+int main()
+{
+    struct Node* p1 = malloc(sizeof(struct Node));
+    struct Node* p2 = malloc(sizeof(struct Node));
+    struct Node* p3 = malloc(sizeof(struct Node));
+
+    p1->data = 10;
+    p2->data = 20;
+    p3->data = 30;
+
+    p1->next = p2;
+    p2->next = p3;
+    p3->next = p1;   // 最后一个重新指向第一个
+
+    struct Node* head = p1;
+    struct Node* p = head;
+
+    do
+    {
+        printf("%d ", p->data);
+        p = p->next;
+    } while (p != head);
+
+    free(p1);
+    free(p2);
+    free(p3);
+
+    return 0;
+}
