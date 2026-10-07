@@ -15,7 +15,6 @@ int main()
     struct Node* p2;
     struct Node* p3;
     struct Node* p;
-    p = head;
 
     p1 = malloc(sizeof(struct Node));
     p2 = malloc(sizeof(struct Node));
@@ -30,6 +29,7 @@ int main()
     p3->next = NULL;
 
     head = p1;
+    p = head;
     while (p != NULL)
     {
         printf("%d ", p->data);
@@ -57,31 +57,31 @@ int main()
     struct Node* p2;
     struct Node* p3;
 
-    // Ò»¿ªÊ¼ÊÇ¿ÕÁ´±í
+    // ä¸€å¼€å§‹æ˜¯ç©ºé“¾è¡¨
     head = NULL;
 
-    // ´´½¨µÚÒ»¸ö½Úµã
+    // åˆ›å»ºç¬¬ä¸€ä¸ªèŠ‚ç‚¹
     p1 = malloc(sizeof(struct Node));
     p1->data = 10;
     p1->next = NULL;
 
-    // head Ö¸ÏòµÚÒ»¸ö½Úµã
+    // head æŒ‡å‘ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
     head = p1;
 
-    // ´´½¨µÚ¶ş¸ö½Úµã
+    // åˆ›å»ºç¬¬äºŒä¸ªèŠ‚ç‚¹
     p2 = malloc(sizeof(struct Node));
     p2->data = 20;
     p2->next = NULL;
 
-    // µÚÒ»¸ö½ÚµãÁ¬½ÓµÚ¶ş¸ö½Úµã
+    // ç¬¬ä¸€ä¸ªèŠ‚ç‚¹è¿æ¥ç¬¬äºŒä¸ªèŠ‚ç‚¹
     p1->next = p2;
 
-    // ´´½¨µÚÈı¸ö½Úµã
+    // åˆ›å»ºç¬¬ä¸‰ä¸ªèŠ‚ç‚¹
     p3 = malloc(sizeof(struct Node));
     p3->data = 30;
     p3->next = NULL;
 
-    // µÚ¶ş¸ö½ÚµãÁ¬½ÓµÚÈı¸ö½Úµã
+    // ç¬¬äºŒä¸ªèŠ‚ç‚¹è¿æ¥ç¬¬ä¸‰ä¸ªèŠ‚ç‚¹
     p2->next = p3;
 
     return 0;
@@ -107,22 +107,22 @@ int main()
     int n;
     int i;
 
-    printf("ÇëÊäÈë½Úµã¸öÊı£º");
+    printf("è¯·è¾“å…¥èŠ‚ç‚¹ä¸ªæ•°ï¼š");
     scanf("%d", &n);
 
     for (i = 0; i < n; i++)
     {
-        // ´´½¨Ò»¸öĞÂ½Úµã
+        // åˆ›å»ºä¸€ä¸ªæ–°èŠ‚ç‚¹
         newNode = malloc(sizeof(struct Node));
 
-        // ÊäÈëÊı¾İ
-        printf("ÇëÊäÈëµÚ%d¸öÊı¾İ£º", i + 1);
+        // è¾“å…¥æ•°æ®
+        printf("è¯·è¾“å…¥ç¬¬%dä¸ªæ•°æ®ï¼š", i + 1);
         scanf("%d", &newNode->data);
 
-        // ĞÂ½ÚµãÔİÊ±Ã»ÓĞÏÂÒ»¸ö½Úµã
+        // æ–°èŠ‚ç‚¹æš‚æ—¶æ²¡æœ‰ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
         newNode->next = NULL;
 
-        // Èç¹ûÕâÊÇµÚÒ»¸ö½Úµã
+        // å¦‚æœè¿™æ˜¯ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
         if (head == NULL)
         {
             head = newNode;
@@ -130,10 +130,10 @@ int main()
         }
         else
         {
-            // °ÑĞÂ½Úµã½Óµ½Á´±í×îºóÃæ
+            // æŠŠæ–°èŠ‚ç‚¹æ¥åˆ°é“¾è¡¨æœ€åé¢
             tail->next = newNode;
 
-            // tail ÒÆ¶¯µ½×îºóÒ»¸ö½Úµã
+            // tail ç§»åŠ¨åˆ°æœ€åä¸€ä¸ªèŠ‚ç‚¹
             tail = newNode;
         }
     }
@@ -147,7 +147,7 @@ int main()
 
 
 
-//Í·²¿²åÈë
+//å¤´éƒ¨æ’å…¥
 struct Node
 {
     int data;
@@ -156,24 +156,24 @@ struct Node
 
 int main()
 {
-    // Ô­À´µÄÁ´±í
+    // åŸæ¥çš„é“¾è¡¨
     struct Node* head = NULL;
 
-    // ´´½¨µÚÒ»¸ö½Úµã
+    // åˆ›å»ºç¬¬ä¸€ä¸ªèŠ‚ç‚¹
     struct Node* p1 = malloc(sizeof(struct Node));
     p1->data = 10;
     p1->next = NULL;
 
     head = p1;
 
-    // ´´½¨µÚ¶ş¸ö½Úµã
+    // åˆ›å»ºç¬¬äºŒä¸ªèŠ‚ç‚¹
     struct Node* p2 = malloc(sizeof(struct Node));
     p2->data = 20;
     p2->next = NULL;
 
     p1->next = p2;
 
-    // ´´½¨µÚÈı¸ö½Úµã
+    // åˆ›å»ºç¬¬ä¸‰ä¸ªèŠ‚ç‚¹
     struct Node* p3 = malloc(sizeof(struct Node));
     p3->data = 30;
     p3->next = NULL;
@@ -181,7 +181,7 @@ int main()
     p2->next = p3;
 
     // ==================
-    // Í·²¿²åÈë 5
+    // å¤´éƒ¨æ’å…¥ 5
     // ==================
 
     struct Node* newNode = malloc(sizeof(struct Node));
@@ -191,7 +191,7 @@ int main()
     newNode->next = head;
     head = newNode;
 
-    // ±éÀú
+    // éå†
     struct Node* p = head;
 
     while (p != NULL)
@@ -211,7 +211,7 @@ int main()
 
 
 
-//Î²²¿²åÈë      
+//å°¾éƒ¨æ’å…¥      
 struct Node
 {
     int data;
@@ -227,39 +227,39 @@ int main()
     int n;
     int i;
 
-    printf("ÇëÊäÈë½Úµã¸öÊı£º");
+    printf("è¯·è¾“å…¥èŠ‚ç‚¹ä¸ªæ•°ï¼š");
     scanf("%d", &n);
 
-    // Î²²¿²åÈë
+    // å°¾éƒ¨æ’å…¥
     for (i = 0; i < n; i++)
     {
-        // ´´½¨ĞÂ½Úµã
+        // åˆ›å»ºæ–°èŠ‚ç‚¹
         newNode = malloc(sizeof(struct Node));
 
-        // ÊäÈëÊı¾İ
-        printf("ÇëÊäÈëµÚ%d¸öÊı¾İ£º", i + 1);
+        // è¾“å…¥æ•°æ®
+        printf("è¯·è¾“å…¥ç¬¬%dä¸ªæ•°æ®ï¼š", i + 1);
         scanf("%d", &newNode->data);
 
-        // ĞÂ½ÚµãÔİÊ±Ö¸Ïò NULL
+        // æ–°èŠ‚ç‚¹æš‚æ—¶æŒ‡å‘ NULL
         newNode->next = NULL;
 
-        // ÅĞ¶ÏÁ´±íÊÇ²»ÊÇ¿ÕµÄ
+        // åˆ¤æ–­é“¾è¡¨æ˜¯ä¸æ˜¯ç©ºçš„
         if (head == NULL)
         {
-            // µÚÒ»¸ö½Úµã
+            // ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
             head = newNode;
             tail = newNode;
         }
         else
         {
-            // ºóÃæµÄ½Úµã
+            // åé¢çš„èŠ‚ç‚¹
             tail->next = newNode;
             tail = newNode;
         }
     }
 
-    // ±éÀúÁ´±í
-    printf("Á´±íÄÚÈİ£º");
+    // éå†é“¾è¡¨
+    printf("é“¾è¡¨å†…å®¹ï¼š");
 
     struct Node* p = head;
 
@@ -274,7 +274,7 @@ int main()
 
 
 
-//É¾³ıµÚÒ»¸ö½Úµã
+//åˆ é™¤ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
 
 
 
@@ -289,7 +289,7 @@ free(temp);
 
 
 
-//É¾³ıÖĞ¼ä½Úµã
+//åˆ é™¤ä¸­é—´èŠ‚ç‚¹
 
 
 
@@ -298,7 +298,7 @@ free(temp);
 
 struct Node* p = head;
 
-// ÕÒµ½ 20 Ç°ÃæµÄ½Úµã 10
+// æ‰¾åˆ° 20 å‰é¢çš„èŠ‚ç‚¹ 10
 while (p->next->data != 20)
 {
     p = p->next;
@@ -314,7 +314,7 @@ free(temp);
 
 
 
-//É¾³ı×îºóÒ»¸ö½Úµã
+//åˆ é™¤æœ€åä¸€ä¸ªèŠ‚ç‚¹
 
 
 
@@ -322,7 +322,7 @@ free(temp);
 
 struct Node* p = head;
 
-// ÕÒµ½×îºóÒ»¸ö½ÚµãÇ°ÃæµÄ½Úµã
+// æ‰¾åˆ°æœ€åä¸€ä¸ªèŠ‚ç‚¹å‰é¢çš„èŠ‚ç‚¹
 while (p->next != tail)
 {
     p = p->next;
@@ -339,10 +339,10 @@ free(temp);
 
 
 
-//²éÕÒÁ´±íÖĞµÄÄ³¸öÖµ
+//æŸ¥æ‰¾é“¾è¡¨ä¸­çš„æŸä¸ªå€¼
 int x;
 
-printf("ÇëÊäÈëÒª²éÕÒµÄÊı¾İ£º");
+printf("è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„æ•°æ®ï¼š");
 scanf("%d", &x);
 
 struct Node* p = head;
@@ -351,7 +351,7 @@ while (p != NULL)
 {
     if (p->data == x)
     {
-        printf("ÕÒµ½ÁË£¡\n");
+        printf("æ‰¾åˆ°äº†ï¼\n");
         break;
     }
 
@@ -360,20 +360,20 @@ while (p != NULL)
 
 if (p == NULL)
 {
-    printf("Ã»ÕÒµ½£¡\n");
+    printf("æ²¡æ‰¾åˆ°ï¼\n");
 }   
 
 
 
 
-//ĞŞ¸ÄÄ³¸öÖµ
+//ä¿®æ”¹æŸä¸ªå€¼
 int oldData;
 int newData;
 
-printf("ÇëÊäÈëÒªĞŞ¸ÄµÄÊı¾İ£º");
+printf("è¯·è¾“å…¥è¦ä¿®æ”¹çš„æ•°æ®ï¼š");
 scanf("%d", &oldData);
 
-printf("ÇëÊäÈëĞŞ¸ÄºóµÄÊı¾İ£º");
+printf("è¯·è¾“å…¥ä¿®æ”¹åçš„æ•°æ®ï¼š");
 scanf("%d", &newData);
 
 struct Node* p = head;
@@ -384,7 +384,7 @@ while (p != NULL)
     {
         p->data = newData;
 
-        printf("ĞŞ¸Ä³É¹¦£¡\n");
+        printf("ä¿®æ”¹æˆåŠŸï¼\n");
         break;
     }
 
@@ -393,5 +393,5 @@ while (p != NULL)
 
 if (p == NULL)
 {
-    printf("Ã»ÓĞÕÒµ½Õâ¸ö½Úµã£¡\n");
+    printf("æ²¡æœ‰æ‰¾åˆ°è¿™ä¸ªèŠ‚ç‚¹ï¼\n");
 }
