@@ -212,6 +212,9 @@ int main()
 
 
 //尾部插入      
+#include <stdio.h>
+#include <stdlib.h>
+
 struct Node
 {
     int data;
@@ -220,48 +223,43 @@ struct Node
 
 int main()
 {
-    struct Node* head = NULL;
-    struct Node* tail = NULL;
-    struct Node* newNode;
+    // 创建三个原来的节点
+    struct Node* p1 = malloc(sizeof(struct Node));
+    struct Node* p2 = malloc(sizeof(struct Node));
+    struct Node* p3 = malloc(sizeof(struct Node));
 
-    int n;
-    int i;
+    p1->data = 10;
+    p2->data = 20;
+    p3->data = 30;
 
-    printf("请输入节点个数：");
-    scanf("%d", &n);
+    p1->next = p2;
+    p2->next = p3;
+    p3->next = NULL;
 
-    // 尾部插入
-    for (i = 0; i < n; i++)
+    struct Node* head = p1;
+
+    // ===== 尾部插入 =====
+
+    // 1. 创建新节点
+    struct Node* newNode = malloc(sizeof(struct Node));
+
+    newNode->data = 40;
+    newNode->next = NULL;
+
+    // 2. 从头开始寻找最后一个节点
+    struct Node* p = head;
+
+    while (p->next != NULL)
     {
-        // 创建新节点
-        newNode = malloc(sizeof(struct Node));
-
-        // 输入数据
-        printf("请输入第%d个数据：", i + 1);
-        scanf("%d", &newNode->data);
-
-        // 新节点暂时指向 NULL
-        newNode->next = NULL;
-
-        // 判断链表是不是空的
-        if (head == NULL)
-        {
-            // 第一个节点
-            head = newNode;
-            tail = newNode;
-        }
-        else
-        {
-            // 后面的节点
-            tail->next = newNode;
-            tail = newNode;
-        }
+        p = p->next;
     }
 
-    // 遍历链表
-    printf("链表内容：");
+    // 3. 把新节点接到最后
+    p->next = newNode;
 
-    struct Node* p = head;
+    // ===== 遍历 =====
+
+    p = head;
 
     while (p != NULL)
     {
@@ -271,7 +269,6 @@ int main()
 
     return 0;
 }
-
 
 
 //删除第一个节点
