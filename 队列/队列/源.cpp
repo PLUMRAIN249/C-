@@ -1,32 +1,32 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-//¶ÓÁĞ»ù±¾ĞÎÊ½
+//é˜Ÿåˆ—åŸºæœ¬å½¢å¼
 int main()
 {
     int queue[5];
     int front = 0;
     int rear = 0;
 
-    // Èë¶Ó 10
+    // å…¥é˜Ÿ 10
     queue[rear] = 10;
     rear++;
 
-    // Èë¶Ó 20
+    // å…¥é˜Ÿ 20
     queue[rear] = 20;
     rear++;
 
-    // Èë¶Ó 30
+    // å…¥é˜Ÿ 30
     queue[rear] = 30;
     rear++;
 
-    // ³ö¶Ó
+    // å‡ºé˜Ÿ
     int data = queue[front];
     front++;
 
-    printf("³ö¶ÓÔªËØ£º%d\n", data);
+    printf("å‡ºé˜Ÿå…ƒç´ ï¼š%d\n", data);
 
-    // Êä³öÏÖÔÚ¶ÓÁĞÖĞµÄÔªËØ
-    printf("ÏÖÔÚ¶ÓÁĞ£º\n");
+    // è¾“å‡ºç°åœ¨é˜Ÿåˆ—ä¸­çš„å…ƒç´ 
+    printf("ç°åœ¨é˜Ÿåˆ—ï¼š\n");
 
     for (int i = front; i < rear; i++)
     {
@@ -35,19 +35,19 @@ int main()
 
     return 0;
 }
-//ÓÃº¯ÊıÊµÏÖ
+//ç”¨å‡½æ•°å®ç°
 int queue[5];
 int front = 0;
 int rear = 0;
 
-// Èë¶Ó
+// å…¥é˜Ÿ
 void enqueue(int data)
 {
     queue[rear] = data;
     rear++;
 }
 
-// ³ö¶Ó
+// å‡ºé˜Ÿ
 int dequeue()
 {
     int data = queue[front];
@@ -64,9 +64,9 @@ int main()
 
     int data = dequeue();
 
-    printf("³ö¶ÓÔªËØ£º%d\n", data);
+    printf("å‡ºé˜Ÿå…ƒç´ ï¼š%d\n", data);
 
-    printf("ÏÖÔÚ¶ÓÁĞ£º\n");
+    printf("ç°åœ¨é˜Ÿåˆ—ï¼š\n");
 
     for (int i = front; i < rear; i++)
     {
@@ -80,7 +80,7 @@ int main()
 
 
 
-//¼òµ¥Ñ­»·¶ÓÁĞ
+//ç®€å•å¾ªç¯é˜Ÿåˆ—
 
 #define MAX 5
 
@@ -88,14 +88,14 @@ int queue[MAX];
 int front = 0;
 int rear = 0;
 
-//Èë¶Ó
+//å…¥é˜Ÿ
 void enqueue(int data)
 {
     queue[rear] = data;
     rear = (rear + 1) % MAX;
 }
 
-//³ö¶Ó
+//å‡ºé˜Ÿ
 int dequeue()
 {
     int data = queue[front];
@@ -111,13 +111,13 @@ int main()
     enqueue(30);
     enqueue(40);
 
-    printf("³ö¶Ó£º%d\n", dequeue());
-    printf("³ö¶Ó£º%d\n", dequeue());
+    printf("å‡ºé˜Ÿï¼š%d\n", dequeue());
+    printf("å‡ºé˜Ÿï¼š%d\n", dequeue());
 
     enqueue(50);
     enqueue(60);
 
-    printf("ÏÖÔÚ¶ÓÁĞ£º\n");
+    printf("ç°åœ¨é˜Ÿåˆ—ï¼š\n");
 
     int i = front;
 
@@ -129,24 +129,24 @@ int main()
 
     return 0;
 }
-//Ñ­»·¶ÓÁĞÅĞ¶Ï¶ÓÂú¶Ó¿Õ£º¹ÊÒâ¿Õ³öÒ»¸öÎ»ÖÃ Ã÷Ã÷ÓĞn¸öÎ»ÖÃ ÎÒÕæÕıÖ»×°n-1¸öÔªËØ ÓÀÔ¶ÒªÁôÒ»¸ö¿ÕÎ»£¡£¡
-Ñ­»·¶ÓÁĞ MAX = 5
+//å¾ªç¯é˜Ÿåˆ—åˆ¤æ–­é˜Ÿæ»¡é˜Ÿç©ºï¼šæ•…æ„ç©ºå‡ºä¸€ä¸ªä½ç½® æ˜æ˜æœ‰nä¸ªä½ç½® æˆ‘çœŸæ­£åªè£…n-1ä¸ªå…ƒç´  æ°¸è¿œè¦ç•™ä¸€ä¸ªç©ºä½ï¼ï¼
+å¾ªç¯é˜Ÿåˆ— MAX = 5
 
-¶Ó¿Õ£º
+é˜Ÿç©ºï¼š
 
 [][][][][]
-¡ü
+â†‘
 front
-¡ü
+â†‘
 rear
 
 front == rear
 
 
-¶ÓÂú£º
+é˜Ÿæ»¡ï¼š
 
 [10] [20] [30] [40]   []
-¡ü                    ¡ü
-front                rear
+â†‘                     â†‘
+frontï¼š0             rearï¼š4
 
 (rear + 1) % MAX == front
