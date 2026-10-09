@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-//¶ş²æÊ÷¾ÍÊÇÃ¿¸ö½Úµã×î¶àÓĞÁ½¸ö×Ó½Úµã
+//äºŒå‰æ ‘å°±æ˜¯æ¯ä¸ªèŠ‚ç‚¹æœ€å¤šæœ‰ä¸¤ä¸ªå­èŠ‚ç‚¹
 struct Node
 {
     int data;
@@ -19,7 +19,7 @@ int main()
     p1 = malloc(sizeof(struct Node));
     p2 = malloc(sizeof(struct Node));
 
-    if (root == NULL || p1 == NULL || p2 == NULL)//ÓĞÈÎºÎÒ»¸öÉêÇëÄÚ´æÊ§°Ü ¾ÍÊÍ·ÅÄÚ´æ
+    if (root == NULL || p1 == NULL || p2 == NULL)//æœ‰ä»»ä½•ä¸€ä¸ªç”³è¯·å†…å­˜å¤±è´¥ å°±é‡Šæ”¾å†…å­˜
     {
         free(root);
         free(p1);
@@ -55,7 +55,7 @@ int main()
 
 
 
-//½Úµã´´Ôìº¯Êı
+//èŠ‚ç‚¹åˆ›é€ å‡½æ•°
 struct Node
 {
     int data;
@@ -114,7 +114,7 @@ int main()
                                                       D      E        F
 
 
-//Ç°Ğò±éÀú£¨¸ù×óÓÒ£© ABDECF
+//å‰åºéå†ï¼ˆæ ¹å·¦å³ï¼‰ ABDECF
 struct Node
 {
     int data;
@@ -134,7 +134,7 @@ void preorder(struct Node* root)
 
     preorder(root->right);
 }
-//ÖĞĞò±éÀú£¨×ó¸ùÓÒ£© DBEAFC
+//ä¸­åºéå†ï¼ˆå·¦æ ¹å³ï¼‰ DBEAFC
 struct Node
 {
     int data;
@@ -155,7 +155,7 @@ void inorder(struct Node* root)
 
     inorder(root->right);
 }
-//ºóĞò±éÀú£¨×óÓÒ¸ù£© DEBFCA
+//ååºéå†ï¼ˆå·¦å³æ ¹ï¼‰ DEBFCA
 struct Node
 {
     int data;
@@ -176,7 +176,7 @@ void postorder(struct Node* root)
 
     printf("%c ", root->data);
 }
-//²ãĞò±éÀú ABCDEF
+//å±‚åºéå† ABCDEF
 void levelOrder(struct Node* root)
 {
     if (root == NULL)
@@ -216,8 +216,8 @@ void levelOrder(struct Node* root)
 
 
 
-//¶ş²æÊ÷µÄ³£¼ûËã·¨
-1.¼ÆËã½Úµã×ÜÊı£º×ó×ÓÊ÷½Úµã×ÜÊı+ÓÒ×ÓÊ÷½Úµã×ÜÊı+1
+//äºŒå‰æ ‘çš„å¸¸è§ç®—æ³•
+1.è®¡ç®—èŠ‚ç‚¹æ€»æ•°ï¼šå·¦å­æ ‘èŠ‚ç‚¹æ€»æ•°+å³å­æ ‘èŠ‚ç‚¹æ€»æ•°+1
 int countNodes(struct Node* root)
 {
     if (root == NULL)
@@ -231,7 +231,7 @@ int countNodes(struct Node* root)
 
     return leftCount + rightCount + 1;
 }
-2.¼ÆËãÒ¶×Ó½Úµã×ÜÊı
+2.è®¡ç®—å¶å­èŠ‚ç‚¹æ€»æ•°
 int countLeaves(struct Node* root)
 {
     if (root == NULL)
@@ -250,7 +250,7 @@ int countLeaves(struct Node* root)
 
     return leftCount + rightCount;
 }
-3.Ê÷µÄ¸ß¶È
+3.æ ‘çš„é«˜åº¦
 int getHeight(struct Node* root)
 {
     if (root == NULL)
@@ -271,7 +271,7 @@ int getHeight(struct Node* root)
         return rightHeight + 1;
     }
 }
-4.²éÕÒÖ¸¶¨½Úµã
+4.æŸ¥æ‰¾æŒ‡å®šèŠ‚ç‚¹
 struct Node* searchNode(struct Node* root, char target)
 {
     if (root == NULL)
@@ -292,4 +292,57 @@ struct Node* searchNode(struct Node* root, char target)
     }
 
     return searchNode(root->right, target);
+}
+
+
+
+
+
+//äºŒå‰æœç´¢æ ‘
+å®ƒæœ‰ä¸‰ä¸ªåŸºæœ¬è§„åˆ™ï¼š
+1. å·¦å­æ ‘ä¸­æ‰€æœ‰èŠ‚ç‚¹çš„å€¼éƒ½å°äºæ ¹èŠ‚ç‚¹çš„å€¼ã€‚
+2. å³å­æ ‘ä¸­æ‰€æœ‰èŠ‚ç‚¹çš„å€¼éƒ½å¤§äºæ ¹èŠ‚ç‚¹çš„å€¼ã€‚
+3. å·¦å³å­æ ‘ä¹Ÿå¿…é¡»åˆ†åˆ«æ»¡è¶³äºŒå‰æœç´¢æ ‘çš„è§„åˆ™ã€‚
+//æŸ¥æ‰¾ä»£ç 
+struct Node* search(struct Node* root, int key)
+{
+    if (root == NULL)
+    {
+        return NULL;
+    }
+
+    if (root->data == key)
+    {
+        return root;
+    }
+
+    if (key < root->data)
+    {
+        return search(root->left, key);
+    }
+    else
+    {
+        return search(root->right, key);
+    }
+}
+
+
+//æ’å…¥ç®—æ³•
+struct Node* insert(struct Node* root, int data)
+{
+    if (root == NULL)
+    {
+        return createNode(data);
+    }
+
+    if (data < root->data)
+    {
+        root->left = insert(root->left, data);
+    }
+    else if (data > root->data)
+    {
+        root->right = insert(root->right, data);
+    }
+
+    return root;
 }
