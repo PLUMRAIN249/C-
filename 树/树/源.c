@@ -346,3 +346,150 @@ struct Node* insert(struct Node* root, int data)
 
     return root;
 }
+//删除
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+};
+
+struct Node* createNode(int data)
+{
+    struct Node* p = malloc(sizeof(struct Node));
+
+    if (p == NULL)
+    {
+        return NULL;
+    }
+
+    p->data = data;
+    p->left = NULL;
+    p->right = NULL;
+
+    return p;
+}
+
+struct Node* insert(struct Node* root, int data)
+{
+    if (root == NULL)
+    {
+        return createNode(data);
+    }
+
+    if (data < root->data)
+    {
+        root->left = insert(root->left, data);
+    }
+    else if (data > root->data)
+    {
+        root->right = insert(root->right, data);
+    }
+
+    return root;
+}
+
+struct Node* findMin(struct Node* root)
+{
+    while (root != NULL && root->left != NULL)
+    {
+        root = root->left;
+    }
+
+    return root;
+}
+
+struct Node* deleteNode(struct Node* root, int data)
+{
+    if (root == NULL)
+    {
+        return NULL;
+    }
+
+    if (data < root->data)
+    {
+        root->left = deleteNode(root->left, data);
+    }
+    else if (data > root->data)
+    {
+        root->right = deleteNode(root->right, data);
+    }
+    else
+    {
+        // 没有左孩子
+        if (root->left == NULL)
+        {
+            struct Node* temp = root->right;
+            free(root);
+            return temp;
+        }
+
+        // 没有右孩子
+        if (root->right == NULL)
+        {
+            struct Node* temp = root->left;
+            free(root);
+            return temp;
+        }
+
+        // 有两个孩子
+        struct Node* temp = findMin(root->right);
+
+        root->data = temp->data;
+
+        root->right = deleteNode(root->right, temp->data);
+    }
+
+    return root;
+}
+
+void inorder(struct Node* root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    inorder(root->left);
+    printf("%d ", root->data);
+    inorder(root->right);
+}
+
+void freeTree(struct Node* root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    freeTree(root->left);
+    freeTree(root->right);
+    free(root);
+}
+
+int main()
+{
+    struct Node* root = NULL;
+
+    int a[] = {50, 30, 70, 20, 40, 60, 80, 55};
+
+    for (int i = 0; i < 8; i++)
+    {
+        root = insert(root, a[i]);
+    }
+
+    printf("删除前：");
+    inorder(root);
+
+    root = deleteNode(root, 50);
+
+    printf("\n删除后：");
+    inorder(root);
+
+    freeTree(root);
+
+    return 0;
+}
